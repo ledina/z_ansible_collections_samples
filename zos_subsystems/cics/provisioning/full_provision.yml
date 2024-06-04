@@ -5,15 +5,12 @@
   vars_files: "{{ playbook_dir }}/host_vars/variables.yml"
   environment: "{{ environment_vars }}"
 
-  vars:
-    applid: APPLID
-
   module_defaults:
     group/ibm.ibm_zos_cics.region_group:
       state: initial
       cics_data_sets:
-        template: "CTS610.CICS740.<< lib_name >>"
-        sdfhlic: "CTS610.CICS740.LIC.SDFHLIC"
+        template:  "{{ cics_template }}"
+        sdfhlic: "{{ cics_sdfhlic }}"
       region_data_sets:
         template: "{{ ansible_user }}.REGIONS.{{ applid }}.<< data_set_name >>"
       le_data_sets:
@@ -85,8 +82,8 @@
           gmtext: '''Region provisioned with Ansible'''
           srbsvc: 218
           tcpip: "NO"
-          usshome: /cics/cics740
-          sysidnt: ZPY1
+          usshome: "{{ usshome }}"
+          sysidnt: "{{ sysidnt }}"
       register: result
 
     - name: Output start CICS JCL

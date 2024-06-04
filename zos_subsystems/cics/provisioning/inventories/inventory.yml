@@ -1,7 +1,7 @@
 source_system:
   hosts:
-    mylpar:
-      ansible_host: your.lpar.system.
-      ansible_user: USER
+    mvs28:
+      ansible_host: winmvs28.hursley.ibm.com
+      ansible_user: LEDINA
       ansible_python_interpreter: /python/v3r9/usr/lpp/IBM/cyp/v3r9/pyz/bin/python3
       ansible_ssh_common_args: "-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"

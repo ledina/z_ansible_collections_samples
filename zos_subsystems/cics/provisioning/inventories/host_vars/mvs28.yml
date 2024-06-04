@@ -1,0 +1,11 @@
+applid: IYK2ZLY1
+sysidnt: ZPY1
+jobid: JOB12345
+pyz: "/python/v3r9/usr/lpp/IBM/cyp/v3r9/pyz"
+zoau: "/usr/lpp/IBM/zoautil"
+cics_template: "CTS610.CICS740.<< lib_name >>"
+cics_sdfhlic: "CTS610.CICS740.LIC.SDFHLIC"
+usshome: "/cics/cics740"
+cmci_port: 27000
+cpsm_steplib: "CTS610.CPSM610.SEYUAUTH"
+cpsm_dfhrpl: "CTS610.CPSM610.SEYULOAD"

@@ -5,16 +5,12 @@
   vars_files: "{{ playbook_dir }}/host_vars/variables.yml"
   environment: "{{ environment_vars }}"
 
-  vars:
-    applid: APPLID
-    cmci_port: 27000
-
   module_defaults:
     group/ibm.ibm_zos_cics.region_group:
       state: initial
       cics_data_sets:
-        template: "CTS610.CICS740.<< lib_name >>"
-        sdfhlic: "CTS610.CICS740.LIC.SDFHLIC"
+        template:  "{{ cics_template }}"
+        sdfhlic: "{{ cics_sdfhlic }}"
       region_data_sets:
         template: "{{ ansible_user }}.REGIONS.{{ applid }}.<< data_set_name >>"
       le_data_sets:
@@ -77,10 +73,10 @@
         applid: "{{ applid }}"
         steplib:
           top_libraries:
-            - CTS610.CPSM610.SEYUAUTH
+            - "{{ cpsm_steplib }}"
         dfhrpl:
           top_libraries:
-            - CTS610.CPSM610.SEYULOAD
+            - "{{ cpsm_dfhrpl }}"
         job_parameters:
           region: 0M
         sit_parameters:
@@ -93,8 +89,8 @@
           gmtext: '''Region provisioned with Ansible'''
           srbsvc: 218
           tcpip: "YES"
-          usshome: /cics/cics740
-          sysidnt: ZPY1
+          usshome: "{{ usshome }}"
+          sysidnt: "{{ sysidnt }}"
           cpsmconn: "NO"
           sec: "NO"
       register: result
