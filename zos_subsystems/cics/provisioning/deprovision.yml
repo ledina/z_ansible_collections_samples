@@ -2,7 +2,6 @@
 - name: Stop CICS and deprovision CICS Data sets
   hosts: all
   gather_facts: false
-  vars_files: "{{ playbook_dir }}/host_vars/variables.yml"
   environment: "{{ environment_vars }}"
 
 
