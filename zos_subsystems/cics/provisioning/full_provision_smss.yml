@@ -76,6 +76,7 @@
         dfhrpl:
           top_libraries:
             - "{{ cpsm_dfhrpl }}"
+            - "LEDINA.GSE.EXEC"
         job_parameters:
           region: 0M
         sit_parameters:
