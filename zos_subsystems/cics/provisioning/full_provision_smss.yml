@@ -93,6 +93,7 @@
           sysidnt: "{{ sysidnt }}"
           cpsmconn: "NO"
           sec: "NO"
+          csdrecov: "NONE"
       register: result
 
     - name: Output start CICS JCL
